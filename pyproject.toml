@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "artyom-afisha"
+version = "0.1.0"
+description = ""
+authors = ["leeny_the_bear <leeny@inbox.ru>"]
+readme = "README.md"
+packages = [{include = "artyom_afisha"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
