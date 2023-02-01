@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from views import get_main
+from Artyom_afisha.views import get_main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
