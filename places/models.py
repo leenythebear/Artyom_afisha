@@ -13,3 +13,6 @@ class Place(models.Model):
         return self.title
 
 
+class Image(models.Model):
+    image = models.ImageField(upload_to='places/')
+    place = models.ForeignKey(Place, verbose_name='Место', related_name='Место', on_delete=models.CASCADE)
