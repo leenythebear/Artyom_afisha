@@ -19,4 +19,4 @@ class Image(models.Model):
     number = models.IntegerField(verbose_name='Позиция', default=0)
 
     def __str__(self):
-        return self.place, self.number
+        return f'{self.place}, {self.number}'
