@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.templatetags.static import static
 from django.template import loader
+from django.urls import reverse
+
 from .models import Place, Image
 
 
@@ -33,9 +35,9 @@ def get_index_page(request):
                 "coordinates": [place.longitude, place.latitude]
             },
             "properties": {
-            "title": place.title,
-            "placeId": place.id,
-            "detailsUrl": static(place.details_url)
+                 "title": place.title,
+                 "placeId": place.id,
+                 "detailsUrl": reverse("get_place", kwargs={'place_id': place.place_id})
             }
         }
         features.append(feature)
