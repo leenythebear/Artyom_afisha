@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path
 
 from mysite import settings
-from places.views import get_main
+from places.views import get_index_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_main),
+    path('', get_index_page),
 ]
 
 if settings.DEBUG:

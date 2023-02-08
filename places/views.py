@@ -4,7 +4,7 @@ from django.template import loader
 from .models import Place
 
 
-def get_main(request):
+def get_index_page(request):
     places = Place.objects.all()
     features = []
     for place in places:
