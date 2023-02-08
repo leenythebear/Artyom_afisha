@@ -17,7 +17,7 @@ def get_index_page(request):
             "properties": {
             "title": place.title,
             "placeId": place.id,
-            "detailsUrl": static('places/moscow_legends.json')
+            "detailsUrl": static(place.details_url)
             }
         }
         features.append(feature)
@@ -26,7 +26,6 @@ def get_index_page(request):
         'type': 'FeatureCollection',
         'features': features
     }
-    print(places)
     template = loader.get_template('index.html')
     context = {'places': places}
     rendered_page = template.render(context, request)
