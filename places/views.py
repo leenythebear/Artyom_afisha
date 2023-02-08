@@ -37,7 +37,7 @@ def get_index_page(request):
             "properties": {
                  "title": place.title,
                  "placeId": place.id,
-                 "detailsUrl": reverse("get_place", kwargs={'place_id': place.place_id})
+                 "detailsUrl": reverse("get_place", kwargs={'slug': place.slug})
             }
         }
         features.append(feature)
