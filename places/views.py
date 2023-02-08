@@ -1,7 +1,25 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404
 from django.templatetags.static import static
 from django.template import loader
-from .models import Place
+from .models import Place, Image
+
+
+def get_place(request, place_id):
+    place = get_object_or_404(Place, place_id=place_id)
+    place_images = place.images.all()
+    serialized_place = {
+        "title": place.title,
+        "imgs": [image.image.url for image in place_images],
+        "description_short": place.description_short,
+        "description_long": place.description_long,
+        "coordinates": {
+            "lng": place.longitude,
+            "lat": place.latitude
+        }
+    }
+
+    return JsonResponse(serialized_place, json_dumps_params={"ensure_ascii": False})
 
 
 def get_index_page(request):
