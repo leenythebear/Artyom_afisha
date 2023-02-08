@@ -7,8 +7,8 @@ from django.urls import reverse
 from .models import Place, Image
 
 
-def get_place(request, place_id):
-    place = get_object_or_404(Place, place_id=place_id)
+def get_place(request, slug):
+    place = get_object_or_404(Place, slug=slug)
     place_images = place.images.all()
     serialized_place = {
         "title": place.title,
