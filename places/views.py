@@ -19,7 +19,7 @@ def get_place(request, place_id):
         }
     }
 
-    return JsonResponse(serialized_place, json_dumps_params={"ensure_ascii": False})
+    return JsonResponse(serialized_place, json_dumps_params={"ensure_ascii": False, "indent": 2})
 
 
 def get_index_page(request):
