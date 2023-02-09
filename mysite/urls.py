@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from mysite import settings
 from places.views import get_index_page, get_place
@@ -23,7 +23,8 @@ from places.views import get_index_page, get_place
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', get_index_page),
-    path('places/<slug:slug>/', get_place, name='get_place')
+    path('places/<slug:slug>/', get_place, name='get_place'),
+    path('tinymce/', include('tinymce.urls'))
 ]
 
 if settings.DEBUG:
