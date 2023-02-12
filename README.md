@@ -35,7 +35,7 @@ SECRET_KEY=секретный ключ
 
 Попробовать сайт в действии можно по следующей ссылке:
 
-[link](link) 
+[Куда пойти](http://leenythebear.pythonanywhere.com/)
 
 ## Цель проекта
 
