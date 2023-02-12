@@ -6,8 +6,8 @@ from django.urls import reverse
 from .models import Place
 
 
-def get_place(request, slug):
-    place = get_object_or_404(Place, slug=slug)
+def get_place(request, place_id):
+    place = get_object_or_404(Place, pk=place_id)
     place_images = place.images.all()
     serialized_place = {
         "title": place.title,
@@ -36,7 +36,7 @@ def get_index_page(request):
             "properties": {
                  "title": place.title,
                  "placeId": place.id,
-                 "detailsUrl": reverse("get_place", kwargs={'slug': place.slug})
+                 "detailsUrl": reverse("get_place", args=[place.id])
             }
         }
         features.append(feature)
