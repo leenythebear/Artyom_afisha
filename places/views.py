@@ -1,10 +1,9 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
-from django.templatetags.static import static
 from django.template import loader
 from django.urls import reverse
 
-from .models import Place, Image
+from .models import Place
 
 
 def get_place(request, slug):
