@@ -1,5 +1,5 @@
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from django.urls import reverse
 
@@ -44,7 +44,5 @@ def get_index_page(request):
         'type': 'FeatureCollection',
         'features': features
     }
-    template = loader.get_template('index.html')
     context = {'places': places}
-    rendered_page = template.render(context, request)
-    return HttpResponse(rendered_page)
+    return render(request, 'index.html', context=context)
