@@ -22,9 +22,9 @@ from places.views import get_index_page, get_place
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_index_page),
-    path('places/<int:place_id>', get_place, name='get_place'),
-    path('tinymce/', include('tinymce.urls'))
+    path('tinymce/', include('tinymce.urls')),
+    path('', include('places.urls')),
+
 ]
 
 if settings.DEBUG:
