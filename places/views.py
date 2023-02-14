@@ -12,8 +12,8 @@ def get_place(request, place_id):
     serialized_place = {
         "title": place.title,
         "imgs": [image.image.url for image in place_images],
-        "description_short": place.description_short,
-        "description_long": place.description_long,
+        "short_description": place.short_description,
+        "long_description": place.long_description,
         "coordinates": {
             "lng": place.longitude,
             "lat": place.latitude

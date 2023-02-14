@@ -17,8 +17,8 @@ class Command(BaseCommand):
         response.raise_for_status()
         place_information = response.json()
         title = place_information['title']
-        description_short = place_information['description_short']
-        description_long = place_information['description_long']
+        short_description = place_information['short_description']
+        long_description = place_information['long_description']
         lng = place_information['coordinates']['lng']
         lat = place_information['coordinates']['lat']
         images = place_information['imgs']
@@ -26,8 +26,8 @@ class Command(BaseCommand):
         place, created = Place.objects.get_or_create(
             title=title,
             defaults={
-                'description_short': description_short,
-                'description_long': description_long,
+                'short_description': short_description,
+                'long_description': long_description,
                 'latitude': lat,
                 'longitude': lng,
             }
